@@ -2,6 +2,9 @@
 # Start the service and enable it on system boot
 ufw_enabled: true
 
+# Reset all of the ufw rules
+ufw_reset: false
+
 # List of packages to install
 ufw_packages: ["ufw"]
 

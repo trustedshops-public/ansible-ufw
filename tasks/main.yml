@@ -2,8 +2,31 @@
 
 - import_tasks: install.yml
 
-- import_tasks: service.yml
+- name: Prepare ufw when resetting config
+  block:
+
+    - name: saving old ufw_enabled state
+      set_fact:
+        orig_ufw_enabled: "{{ ufw_enabled }}"
+  
+    - name: setting ufw_enabled to false
+      set_fact:
+        ufw_enabled: false
+
+    - import_tasks: service.yml
+  
+  when: ufw_reset == true
 
 - import_tasks: config.yml
 
+- import_tasks: reset.yml
+  when: ufw_reset == true
+
 - import_tasks: manage.yml
+
+- name: restore old ufw_enabled state
+  set_fact: 
+    ufw_enabled: "{{ orig_ufw_enabled }}"
+  when: ufw_reset == true
+
+- import_tasks: service.yml

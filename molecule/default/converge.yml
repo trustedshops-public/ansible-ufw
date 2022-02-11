@@ -1,12 +1,29 @@
 ---
+
 - name: Converge
   hosts: all
   become: true
   collections:
     - community.general
   vars:
-    ufw_enabled: false
-    ufw_rules: []
+    ufw_enabled: true
+    ufw_reset: true
+    ufw_rules:
+      - comment: Allow SSH
+        delete: false
+        to_port: 22
+        rule: allow
+      - comment: Allow SNMP/SNMP-trap
+        delete: false
+        from_ip: 10.10.10.123/32
+        to_port: 161:162
+        proto: udp
+        rule: allow
+      - comment: Allow MySQL from APP Server
+        delete: false
+        from_ip: 10.10.10.124/32
+        to_port: 3306
+        rule: allow
 
   pre_tasks:
     - name: Update apt cache.
@@ -16,4 +33,4 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-    - weareinteractive.ufw
+    - role: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"

@@ -1,0 +1,5 @@
+---
+
+- name: Reset all rules
+  community.general.ufw:
+    state: reset
