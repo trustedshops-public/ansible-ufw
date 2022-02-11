@@ -1,35 +1,26 @@
-# Ansible weareinteractive.ufw role
+# Ansible ansible-ufw role
 
-[![Build Status](https://img.shields.io/travis/weareinteractive/ansible-ufw.svg)](https://travis-ci.org/weareinteractive/ansible-ufw)
-[![Galaxy](http://img.shields.io/badge/galaxy-weareinteractive.ufw-blue.svg)](https://galaxy.ansible.com/weareinteractive/ufw)
-[![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-ufw.svg)](https://github.com/weareinteractive/ansible-ufw)
-[![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-ufw.svg)](https://github.com/weareinteractive/ansible-ufw)
-
-> `weareinteractive.ufw` is an [Ansible](http://www.ansible.com) role which:
+> `ansible-ufw` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs ufw
 > * configures ufw
 > * configures ufw rules
 > * configures service
 
+This is a fork from [weareinteractive/ansible-ufw](https://github.com/weareinteractive/ansible-ufw)
+
 ## Installation
-
-Using `ansible-galaxy`:
-
-```shell
-$ ansible-galaxy install weareinteractive.ufw
-```
 
 Using `requirements.yml`:
 
 ```yaml
-- src: weareinteractive.ufw
+- src: git+ssh://git@github.com:trustedshops/ansible-ufw.git
 ```
 
 Using `git`:
 
 ```shell
-$ git clone https://github.com/weareinteractive/ansible-ufw.git weareinteractive.ufw
+$ git clone git@github.com:trustedshops/ansible-ufw.git
 ```
 
 ## Dependencies
@@ -44,6 +35,9 @@ Here is a list of all the default variables for this role, which are also availa
 ---
 # Start the service and enable it on system boot
 ufw_enabled: true
+
+# Reset all of the ufw rules
+ufw_reset: false
 
 # List of packages to install
 ufw_packages: ["ufw"]
