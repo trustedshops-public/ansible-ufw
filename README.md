@@ -158,4 +158,4 @@ $ ansible-readme
 ```
 
 ## License
-Copyright (c) We Are Interactive under the MIT license.
+Copyright (c) We Are Interactive, Trusted Shops AG under the MIT license.
