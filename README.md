@@ -1,4 +1,5 @@
 # Ansible ansible-ufw role
+[![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/trustedshops-public/ansible-ufw/blob/main/LICENSE)
 
 > `ansible-ufw` is an [Ansible](http://www.ansible.com) role which:
 >
