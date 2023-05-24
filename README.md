@@ -1,6 +1,13 @@
 # Ansible ansible-ufw role
 [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/trustedshops-public/ansible-ufw/blob/main/LICENSE)
 
+---
+> ℹ️ This project is forked and based on [weareinteractive/ansible-ufw](https://github.com/weareinteractive/ansible-ufw). It has the same license and 
+> contains some tweaks we made to improve the tool in general or make it work better with our infrastructure.
+>
+> Feel free to use it, fork it or base your own work on it.
+---
+
 > `ansible-ufw` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs ufw
